@@ -48,10 +48,15 @@ class numToList:
 
     # Function to delete text in fields
     def delete(self):
-        self.num_list.remove(int(self.enter_entry.get()))
-        self.enter_entry.delete(0, END)
-        self.list_lbl.config(text='')
-
+        try:
+            self.num_list.remove(int(self.enter_entry.get()))
+            self.enter_entry.delete(0, END)
+						self.list_lbl.config(text='')
+						
+        except ValueError:
+            text = '{} not in the list'.format(self.enter_entry.get())
+            messagebox.showerror(message=text)
+            
     # Function to add numbers to sorted list
     def add_sort(self):
         try:
