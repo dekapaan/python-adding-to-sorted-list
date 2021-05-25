@@ -51,6 +51,8 @@ class numToList:
         try:
             self.num_list.remove(int(self.enter_entry.get()))
             self.enter_entry.delete(0, END)
+            self.list_lbl.config(text='')
+
         except ValueError:
             text = '{} not in the list'.format(self.enter_entry.get())
             messagebox.showerror(message=text)
@@ -62,6 +64,7 @@ class numToList:
             number = int(self.enter_entry.get())
             self.num_list.append(number)
             self.enter_entry.delete(0, END)
+            self.list_lbl.config(text='')
 
             # Sorts list when new entries are given
             if len(self.num_list) >= 2:
